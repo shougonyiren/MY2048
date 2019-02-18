@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:windowIsTranslucent="true"
+    tools:context=".MainActivity">
+
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="581dp"
+        android:background="#f9f7ec"
+        tools:context=".MainActivity"
+        tools:layout_editor_absoluteY="137dp"
+        tools:showIn="@layout/activity_main">
+
+        <Button
+            android:id="@+id/restartbutton"
+            android:layout_width="104dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@android:color/transparent"
+            android:gravity="bottom|center"
+            android:onClick="Restart"
+            android:text="restart"
+            android:textAllCaps="false"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints,OnClick" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="430dp" />
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="324dp"
+            android:layout_height="353dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_corner_for_table"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            tools:ignore="MissingConstraints">
+            <!--android:background="@drawable/shape_corner"-->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/tablerow"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/t00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner"
+                    android:bottomLeftRadius="5dp"
+                    android:bottomRightRadius="5dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textStyle="bold|italic"
+                    android:topLeftRadius="5dp"
+                    android:topRightRadius="5dp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/t01"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner"
+                    android:bottomLeftRadius="5dp"
+                    android:bottomRightRadius="5dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textStyle="bold|italic"
+                    android:topLeftRadius="5dp"
+                    android:topRightRadius="5dp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/t02"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner"
+                    android:bottomLeftRadius="5dp"
+                    android:bottomRightRadius="5dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textStyle="bold|italic"
+                    android:topLeftRadius="5dp"
+                    android:topRightRadius="5dp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/t03"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner"
+                    android:bottomLeftRadius="5dp"
+                    android:bottomRightRadius="5dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textStyle="bold|italic"
+                    android:topLeftRadius="5dp"
+                    android:topRightRadius="5dp"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/tablerow"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/t10"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner"
+                    android:bottomLeftRadius="5dp"
+                    android:bottomRightRadius="5dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textStyle="bold|italic"
+                    android:topLeftRadius="5dp"
+                    android:topRightRadius="5dp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/t11"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner"
+                    android:bottomLeftRadius="5dp"
+                    android:bottomRightRadius="5dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textStyle="bold|italic"
+                    android:topLeftRadius="5dp"
+                    android:topRightRadius="5dp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/t12"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner"
+                    android:bottomLeftRadius="5dp"
+                    android:bottomRightRadius="5dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textStyle="bold|italic"
+                    android:topLeftRadius="5dp"
+                    android:topRightRadius="5dp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/t13"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner"
+                    android:bottomLeftRadius="5dp"
+                    android:bottomRightRadius="5dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textStyle="bold|italic"
+                    android:topLeftRadius="5dp"
+                    android:topRightRadius="5dp"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/tablerow">
+
+                <TextView
+                    android:id="@+id/t20"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner"
+                    android:bottomLeftRadius="5dp"
+                    android:bottomRightRadius="5dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textStyle="bold|italic"
+                    android:topLeftRadius="5dp"
+                    android:topRightRadius="5dp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/t21"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner"
+                    android:bottomLeftRadius="5dp"
+                    android:bottomRightRadius="5dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textStyle="bold|italic"
+                    android:topLeftRadius="5dp"
+                    android:topRightRadius="5dp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/t22"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner"
+                    android:bottomLeftRadius="5dp"
+                    android:bottomRightRadius="5dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textStyle="bold|italic"
+                    android:topLeftRadius="5dp"
+                    android:topRightRadius="5dp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/t23"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner"
+                    android:bottomLeftRadius="5dp"
+                    android:bottomRightRadius="5dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textStyle="bold|italic"
+                    android:topLeftRadius="5dp"
+                    android:topRightRadius="5dp"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/tablerow"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/t30"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner"
+                    android:bottomLeftRadius="5dp"
+                    android:bottomRightRadius="5dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textStyle="bold|italic"
+                    android:topLeftRadius="5dp"
+                    android:topRightRadius="5dp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/t31"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner"
+                    android:bottomLeftRadius="5dp"
+                    android:bottomRightRadius="5dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textStyle="bold|italic"
+                    android:topLeftRadius="5dp"
+                    android:topRightRadius="5dp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/t32"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner"
+                    android:bottomLeftRadius="5dp"
+                    android:bottomRightRadius="5dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textStyle="bold|italic"
+                    android:topLeftRadius="5dp"
+                    android:topRightRadius="5dp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/t33"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner"
+                    android:bottomLeftRadius="5dp"
+                    android:bottomRightRadius="5dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textStyle="bold|italic"
+                    android:topLeftRadius="5dp"
+                    android:topRightRadius="5dp"
+                    tools:ignore="HardcodedText" />
+
+            </TableRow>
+
+        </TableLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/RestartLiner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/buttongaryforback"
+            android:layout_width="match_parent"
+            android:layout_height="191dp"
+            android:background="#64a6a29d"
+            android:onClick="RestartCancelonClick" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/RestarLayoutforback"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#64a6a29d">
+
+            <Button
+                android:id="@+id/restartTure"
+                android:layout_width="79dp"
+                android:layout_height="36dp"
+                android:layout_marginBottom="160dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
+                android:onClick="RestartTureonClick"
+                android:text="重开 "
+                android:textColor="#4e4d4d"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/BackCancelforback"
+                app:layout_constraintHorizontal_bias="0.408"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/BackCancelforback"
+                android:layout_width="85dp"
+                android:layout_height="42dp"
+                android:layout_marginBottom="156dp"
+                android:layout_marginEnd="84dp"
+                android:layout_marginRight="84dp"
+                android:background="@android:color/transparent"
+                android:onClick="RestartCancelonClick"
+                android:text="取消"
+                android:textColor="#4e4d4d"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="MissingConstraints" />
+
+        </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/BackLiner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/buttongray"
+            android:layout_width="match_parent"
+            android:layout_height="191dp"
+            android:background="#64a6a29d"
+            android:onClick="RestartCancelonClick" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/RestarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="376dp"
+            android:background="#64a6a29d">
+
+            <Button
+                android:id="@+id/BackTure"
+                android:layout_width="79dp"
+                android:layout_height="36dp"
+                android:layout_marginBottom="160dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
+                android:onClick="BackTureonClick"
+                android:text="退出"
+                android:textColor="#4e4d4d"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/BackCancel"
+                app:layout_constraintHorizontal_bias="0.408"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/BackCancel"
+                android:layout_width="85dp"
+                android:layout_height="42dp"
+                android:layout_marginBottom="156dp"
+                android:layout_marginEnd="84dp"
+                android:layout_marginRight="84dp"
+                android:background="@android:color/transparent"
+                android:onClick="BackCancelonClick"
+                android:text="取消"
+                android:textColor="#4e4d4d"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="MissingConstraints" />
+
+        </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="184dp">
+
+        <TextView
+            android:id="@+id/textViewScore"
+            android:layout_width="130dp"
+            android:layout_height="53dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/shape_corner"
+            android:gravity="center"
+            android:text="SCORE"
+            android:textAllCaps="true"
+            android:textColor="#969696"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="92dp"
+            android:layout_height="54dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="16dp"
+            android:text="2048z"
+            android:textAllCaps="true"
+            android:textSize="36sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="HardcodedText,MissingConstraints" />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.design.widget.CoordinatorLayout>
