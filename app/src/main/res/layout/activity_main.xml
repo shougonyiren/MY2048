@@ -57,6 +57,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints">
             <!--android:background="@drawable/shape_corner"-->
             <TableRow
@@ -420,7 +421,7 @@
             android:layout_width="match_parent"
             android:layout_height="191dp"
             android:background="#64a6a29d"
-            android:onClick="RestartCancelonClick" />
+            android:onClick="BackCancelonClick" />
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/RestarLayout"
@@ -473,13 +474,31 @@
         android:layout_height="184dp">
 
         <TextView
-            android:id="@+id/textViewScore"
-            android:layout_width="130dp"
+            android:id="@+id/textViewBestScore"
+            android:layout_width="100dp"
             android:layout_height="53dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="52dp"
-            android:layout_marginStart="52dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/shape_corner"
+            android:gravity="center"
+            android:text="Best"
+            android:textAllCaps="true"
+            android:textColor="#969696"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewScore"
+            android:layout_width="100dp"
+            android:layout_height="53dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/shape_corner"
             android:gravity="center"
             android:text="SCORE"
@@ -487,27 +506,23 @@
             android:textColor="#969696"
             android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toStartOf="@+id/textViewBestScore"
             app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="92dp"
             android:layout_height="54dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="52dp"
-            android:layout_marginStart="52dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
             android:text="2048z"
             android:textAllCaps="true"
             android:textSize="36sp"
             android:textStyle="bold|italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
             tools:ignore="HardcodedText,MissingConstraints" />
     </android.support.constraint.ConstraintLayout>
 

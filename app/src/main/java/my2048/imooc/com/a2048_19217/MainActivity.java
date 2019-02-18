@@ -41,8 +41,10 @@ import static my2048.imooc.com.a2048_19217.R.drawable.shape_corner;
 public class MainActivity extends AppCompatActivity implements  GestureDetector.OnGestureListener
 {
 
-    int Score=0;
+    int Score;
+    int BestScore;
     TextView textViewScore;
+    TextView textViewBestScore;
     LinearLayout linearLayout;//重来
     LinearLayout linearLayoutforback;//退出
     TextView textView[][]=new TextView[4][4];
@@ -51,24 +53,53 @@ public class MainActivity extends AppCompatActivity implements  GestureDetector.
     SoundPool sp; // 声明SoundPool的引用
     HashMap<Integer, Integer> hm; // 声明一个HashMap来存放声音文件
     int currStreamId;// 当前正播放的streamId
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Initialization();
         initSoundPool(); // 初始化声音池的方法
+        ReadPersistentData();//读取持久化数据
         detector = new GestureDetector(this,this);
-        for(int x=0;x<4;x++)
-            for (int y = 0; y < 4; y++) textView[x][y].setText(String.valueOf(""));
-        GenerateRandom();//生成随机2或4
-        GenerateRandom();//生成随机2或4
+    }
+    private void ReadPersistentData() {
+        SharedPreferences sp = this.getSharedPreferences("data", Context.MODE_PRIVATE);
+        Score = sp.getInt("Score",MODE_PRIVATE);
+        BestScore = sp.getInt("BestScore",MODE_PRIVATE);
+        textViewScore.setText("Score\n"+Score);
+        textViewBestScore.setText("Best\n"+BestScore);
+        String[] matrix=getSharedPreference(this,"matrix");
+        if(matrix==null){
+            for(int x=0;x<4;x++)
+                for (int y = 0; y < 4; y++) textView[x][y].setText(String.valueOf(""));
+            GenerateRandom();//生成随机2或4
+            GenerateRandom();//生成随机2或4
+        }else {
+            String[] matrix1=new String[16];//
+            if(matrix.length<16){
+                for (int i = 0; i < matrix1.length; i++) {
+                    matrix1[i]="";
+                }
+                for (int i = 0; i < matrix.length; i++) {
+                    matrix1[i]=matrix[i];
+                }
+            }
+            for(int x=0;x<4;x++){
+                for (int y = 0; y < 4; y++) {
+                    textView[x][y].setText(matrix1[4*x+y]);
+                    RefreshColor(x,y);
+                }
+            }
+        }
+
     }
     private void Initialization() {
+        textViewBestScore=findViewById(R.id.textViewBestScore);
         linearLayoutforback=findViewById(R.id.BackLiner);
         linearLayoutforback.setVisibility(View.GONE);
         linearLayout=findViewById(R.id.RestartLiner);
         linearLayout.setVisibility(View.GONE);
-        //  RestartLayout.setVisibility(View.GONE);
         textViewScore=findViewById(R.id.textViewScore);
         startButton=findViewById(R.id.restartbutton);
         textView[0][0]=findViewById(R.id.t00);
@@ -342,6 +373,10 @@ public class MainActivity extends AppCompatActivity implements  GestureDetector.
                         Integer A=integer*2;
                         Score=Score+A;
                         textViewScore.setText("SCORE\n"+Score);
+                        if(Score>BestScore){
+                            BestScore=Score;
+                            textViewBestScore.setText("Best\n"+BestScore);
+                        }
                         textView[xtemp+X1][ytemp+Y1].setText(A.toString());
                         textView[xtemp][ytemp].setText("");
                         RefreshColor(xtemp,ytemp);
@@ -391,6 +426,10 @@ public class MainActivity extends AppCompatActivity implements  GestureDetector.
                         Integer A=integer*2;
                         Score=Score+A;
                         textViewScore.setText("SCORE\n"+Score);
+                        if(Score>BestScore){
+                            BestScore=Score;
+                            textViewBestScore.setText("Best\n"+BestScore);
+                        }
                         textView[xtemp+X1][ytemp+Y1].setText(A.toString());
                         textView[xtemp][ytemp].setText("");
                         RefreshColor(xtemp,ytemp);
@@ -407,40 +446,44 @@ public class MainActivity extends AppCompatActivity implements  GestureDetector.
             playSound(1,0);
         }
     }
-    public static void saveApkEnalbleArray(Context context,Integer[] booleanArray) {
-        SharedPreferences prefs = context.getSharedPreferences("Matrix", Context.MODE_PRIVATE);
-        JSONArray jsonArray = new JSONArray();
-        for (Integer b : booleanArray) {
-            jsonArray.put(b);
-        }
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("Matrix",jsonArray.toString());
-        editor.commit();
+    public String[] getSharedPreference(Context context,String key) {
+        String regularEx = "#";
+        String[] str =null;
+        SharedPreferences sp = context.getSharedPreferences("data", Context.MODE_PRIVATE);
+        String values;
+        values = sp.getString(key, "");
+        str = values.split(regularEx);
+        return str;
     }
-    public static Integer[] getApkEnableArray(Context context) {//,int arrayLength
-        SharedPreferences prefs = context.getSharedPreferences("Matrix", Context.MODE_PRIVATE);
-        Integer[] resArray = new Integer[16];
-        Arrays.fill(resArray, true);
-        try {
-            JSONArray jsonArray = new JSONArray(prefs.getString("Matrix", "[]"));
-            for (int i = 0; i < jsonArray.length(); i++) {
-                resArray[i] = jsonArray.getInt(i);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
-        return resArray;
+    public void setSharedPreference(Context context,String key, String[] values) {
+        String regularEx = "#";
+        String str = "";
+        SharedPreferences sp = context.getSharedPreferences("data", Context.MODE_PRIVATE);
+        if (values != null && values.length > 0) {
+            for (String value : values) {
+                str += value;
+                str += regularEx;
+            }
+            SharedPreferences.Editor et = sp.edit();
+            et.putString(key, str);
+            et.commit();
+        }
     }
     @Override
     protected void onDestroy() {
-        Integer[] resArray = new Integer[16];
+       String[] resArray = new String[16];
         for (int x = 0; x < 4; x++) {
             for (int y = 0; y < 4; y++) {
-                resArray [4*x+y] = Integer.valueOf(textView[x][y].getText().toString());
+                resArray [4*x+y] = textView[x][y].getText().toString();
             }
         }
-        saveApkEnalbleArray(this,resArray);
+        setSharedPreference(this,"matrix", resArray);
+        SharedPreferences sp = this.getSharedPreferences("data", Context.MODE_PRIVATE);
+        SharedPreferences.Editor et = sp.edit();
+        et.putInt("Score",Score);
+        et.putInt("BestScore",BestScore);
+        et.commit();
         super.onDestroy();
     }
 
