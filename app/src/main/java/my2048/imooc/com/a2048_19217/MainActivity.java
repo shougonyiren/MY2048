@@ -1,22 +1,12 @@
 package my2048.imooc.com.a2048_19217;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.SoundPool;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.renderscript.Sampler;
-import android.support.annotation.RequiresApi;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.text.Layout;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -27,12 +17,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.json.JSONArray;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -45,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements  GestureDetector.
     int BestScore;
     TextView textViewScore;
     TextView textViewBestScore;
+    LinearLayout linearLayoutforFailure;//结束界面 失败界面
     LinearLayout linearLayout;//重来
     LinearLayout linearLayoutforback;//退出
     TextView textView[][]=new TextView[4][4];
@@ -63,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements  GestureDetector.
         ReadPersistentData();//读取持久化数据
         detector = new GestureDetector(this,this);
     }
+    //读取持久化数据
     private void ReadPersistentData() {
         SharedPreferences sp = this.getSharedPreferences("data", Context.MODE_PRIVATE);
         Score = sp.getInt("Score",MODE_PRIVATE);
@@ -94,7 +81,10 @@ public class MainActivity extends AppCompatActivity implements  GestureDetector.
         }
 
     }
+    //控件初始化
     private void Initialization() {
+        linearLayoutforFailure=findViewById(R.id.FailureLiner);
+        linearLayoutforFailure.setVisibility(View.GONE);
         textViewBestScore=findViewById(R.id.textViewBestScore);
         linearLayoutforback=findViewById(R.id.BackLiner);
         linearLayoutforback.setVisibility(View.GONE);
@@ -141,7 +131,8 @@ public class MainActivity extends AppCompatActivity implements  GestureDetector.
         // 调用SoundPool的play方法来播放声音文件
         currStreamId = sp.play(hm.get(sound), volume, volume, 1, loop, 1.0f);
     }
-    private void   GenerateRandom(){//生成随机2或4
+    //生成随机2或4
+    private void GenerateRandom(){
         Random ran1 = new Random();
         int vaule;
         int z=ran1.nextInt(6);
@@ -160,6 +151,7 @@ public class MainActivity extends AppCompatActivity implements  GestureDetector.
             }
         }
         if(TisNull.isEmpty()){
+            DecisionFailure();
             return;
         }
         Random ran2 = new Random();
@@ -179,6 +171,36 @@ public class MainActivity extends AppCompatActivity implements  GestureDetector.
         textView[x][y].startAnimation(animation);
         RefreshColor(x,y);
     }
+
+    private void DecisionFailure() {
+        //boolean
+        for (int x = 0; x < 4; x++) {
+            for (int y = 0; y < 4; y++) {
+                if(x-1>=0){
+                    if(textView[x][y].getText().equals(textView[x-1][y].getText())) {
+                        return;
+                    }
+                }
+                if(x+1<=3){
+                    if(textView[x][y].getText().equals(textView[x+1][y].getText())) {
+                        return;
+                    }
+                }
+                if(y-1>=0){
+                    if(textView[x][y].getText().equals(textView[x][y-1].getText())) {
+                        return;
+                    }
+                }
+                if(y+1<=3){
+                    if(textView[x][y].getText().equals(textView[x][y+1].getText())) {
+                        return;
+                    }
+                }
+            }
+        }
+        linearLayoutforFailure.setVisibility(View.VISIBLE);
+    }
+
     private void RefreshColor(int x,int y) {
         Resources resources = getBaseContext().getResources();
         Drawable drawable = resources.getDrawable(shape_corner);
@@ -506,6 +528,7 @@ public class MainActivity extends AppCompatActivity implements  GestureDetector.
         textViewScore.setText("SCORE\n"+Score);
         GenerateRandom();//生成随机2或4
         GenerateRandom();//生成随机2或4
+        linearLayoutforFailure.setVisibility(View.GONE);
         linearLayout.setVisibility(View.GONE);
     }
     public void BackTureonClick(View view) {//确定退出
