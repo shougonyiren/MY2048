@@ -1,11 +1,14 @@
 package my2048.imooc.com.a2048_19217;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -15,8 +18,12 @@ import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -25,20 +32,23 @@ import static my2048.imooc.com.a2048_19217.R.drawable.shape_corner;
 
 public class MainActivity extends AppCompatActivity implements  GestureDetector.OnGestureListener
 {
-
+    TableLayout tableLayout;
     int Score;
     int BestScore;
     TextView textViewScore;
     TextView textViewBestScore;
-    LinearLayout linearLayoutforFailure;//结束界面 失败界面
-    LinearLayout linearLayout;//重来
-    LinearLayout linearLayoutforback;//退出
+    TextView textViewGameOver;
+    ImageView Curtain;//幕布
+ /*   LinearLayout linearLayoutforback;//退出*/
     TextView textView[][]=new TextView[4][4];
     GestureDetector detector;
     Button startButton;
     SoundPool sp; // 声明SoundPool的引用
     HashMap<Integer, Integer> hm; // 声明一个HashMap来存放声音文件
     int currStreamId;// 当前正播放的streamId
+    private long clickTime = 0; // 第一次点击back的时间
+    private boolean  isFailure=false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,30 +58,45 @@ public class MainActivity extends AppCompatActivity implements  GestureDetector.
         initSoundPool(); // 初始化声音池的方法
         ReadPersistentData();//读取持久化数据
         detector = new GestureDetector(this,this);
+       /* GenerateRandom();
+        GenerateRandom();*/
     }
     //读取持久化数据
     private void ReadPersistentData() {
-        SharedPreferences sp = this.getSharedPreferences("data", Context.MODE_PRIVATE);
-        Score = sp.getInt("Score",MODE_PRIVATE);
-        BestScore = sp.getInt("BestScore",MODE_PRIVATE);
+        SharedPreferences Score1 = this.getSharedPreferences("Score", Context.MODE_PRIVATE);
+        Score = Score1.getInt("Score",MODE_PRIVATE);
+        BestScore = Score1.getInt("BestScore",MODE_PRIVATE);
         textViewScore.setText("Score\n"+Score);
         textViewBestScore.setText("Best\n"+BestScore);
+       // SharedPreferences sp = this.getSharedPreferences("data", Context.MODE_PRIVATE);
         String[] matrix=getSharedPreference(this,"matrix");
-        if(matrix==null){
+        boolean isEmpty=true;
+        for (String a:matrix
+             ) {
+            if(!a.equals("")){
+                isEmpty=false;
+               // break;
+            }
+            System.out.println(" A   :" +a);
+        }
+        if(isEmpty){
+            System.out.println("isEmpty");
             for(int x=0;x<4;x++)
                 for (int y = 0; y < 4; y++) textView[x][y].setText(String.valueOf(""));
             GenerateRandom();//生成随机2或4
             GenerateRandom();//生成随机2或4
         }else {
+            System.out.println("isNotEmpty");
             String[] matrix1=new String[16];//
-            if(matrix.length<16){
+            if(matrix.length<16) {
+                System.out.println("matrix.length<16");
                 for (int i = 0; i < matrix1.length; i++) {
-                    matrix1[i]="";
-                }
-                for (int i = 0; i < matrix.length; i++) {
-                    matrix1[i]=matrix[i];
+                    matrix1[i] = "";
                 }
             }
+                for (int i = 0; i < matrix.length; i++) {
+                    matrix1[i] = matrix[i];
+                }
             for(int x=0;x<4;x++){
                 for (int y = 0; y < 4; y++) {
                     textView[x][y].setText(matrix1[4*x+y]);
@@ -79,17 +104,19 @@ public class MainActivity extends AppCompatActivity implements  GestureDetector.
                 }
             }
         }
-
     }
     //控件初始化
     private void Initialization() {
-        linearLayoutforFailure=findViewById(R.id.FailureLiner);
-        linearLayoutforFailure.setVisibility(View.GONE);
+        textViewGameOver=findViewById(R.id.textGAMEOVER);
+        textViewGameOver.setVisibility(View.GONE);
+        tableLayout=findViewById(R.id.tableLayout);//主操作盘
+
         textViewBestScore=findViewById(R.id.textViewBestScore);
-        linearLayoutforback=findViewById(R.id.BackLiner);
-        linearLayoutforback.setVisibility(View.GONE);
-        linearLayout=findViewById(R.id.RestartLiner);
-        linearLayout.setVisibility(View.GONE);
+
+        //幕布
+        Curtain=findViewById(R.id.curtain);
+        Curtain.setVisibility(View.GONE);
+
         textViewScore=findViewById(R.id.textViewScore);
         startButton=findViewById(R.id.restartbutton);
         textView[0][0]=findViewById(R.id.t00);
@@ -198,7 +225,12 @@ public class MainActivity extends AppCompatActivity implements  GestureDetector.
                 }
             }
         }
-        linearLayoutforFailure.setVisibility(View.VISIBLE);
+        Animation animation;
+        Curtain.setVisibility(View.VISIBLE);//幕布界面
+        textViewGameOver.setVisibility(View.VISIBLE);
+        animation= AnimationUtils.loadAnimation(this,R.anim.scale_gameover);
+        textViewGameOver.startAnimation(animation);
+        isFailure=true;
     }
 
     private void RefreshColor(int x,int y) {
@@ -342,24 +374,40 @@ public class MainActivity extends AppCompatActivity implements  GestureDetector.
         float endX = e2.getX();
         float beginY = e1.getY();
         float endY = e2.getY();
+        if(isFailure){
+            return false;
+        }
         if(beginX-endX>minMove&&Math.abs(velocityX)>minVelocity){   //左滑
             SlidingOperation(0,-1);
-            System.out.println("左滑");
-            // Toast.makeText(this,velocityX+"左滑",Toast.LENGTH_SHORT).show();
+           // System.out.println("左滑");
         }else if(endX-beginX>minMove&&Math.abs(velocityX)>minVelocity){   //右滑
             SlidingOperationReverse(0,1);
-            System.out.println("右滑");
-            // Toast.makeText(this,velocityX+"右滑",Toast.LENGTH_SHORT).show();
+          //  System.out.println("右滑");
         }else if(beginY-endY>minMove&&Math.abs(velocityY)>minVelocity){   //上滑
             SlidingOperation(-1,0);
-            System.out.println("上滑");
-            // Toast.makeText(this,velocityX+"上滑",Toast.LENGTH_SHORT).show();
+          //  System.out.println("上滑");
         }else if(endY-beginY>minMove&&Math.abs(velocityY)>minVelocity){   //下滑
             SlidingOperationReverse(1,0);
-            System.out.println("下滑");
-            //  Toast.makeText(this,velocityX+"下滑",Toast.LENGTH_SHORT).show();
+         //   System.out.println("下滑");
         }
         GenerateRandom();
+
+        System.out.println("进行存储");
+        //进行存储
+        String[] resArray = new String[16];
+        for (int x = 0; x < 4; x++) {
+            for (int y = 0; y < 4; y++) {
+                resArray [4*x+y] = textView[x][y].getText().toString();
+            //    System.out.print(resArray [4*x+y]+"   ");
+            }
+          //  System.out.println();
+        }
+        setSharedPreference(this,"matrix", resArray);
+        SharedPreferences sp = this.getSharedPreferences("data", Context.MODE_PRIVATE);
+        SharedPreferences.Editor et = sp.edit();
+        et.putInt("Score",Score);
+        et.putInt("BestScore",BestScore);
+        et.commit();
         return false;
     }
     private void SlidingOperation(int X1,int Y1) {
@@ -494,18 +542,6 @@ public class MainActivity extends AppCompatActivity implements  GestureDetector.
     }
     @Override
     protected void onDestroy() {
-       String[] resArray = new String[16];
-        for (int x = 0; x < 4; x++) {
-            for (int y = 0; y < 4; y++) {
-                resArray [4*x+y] = textView[x][y].getText().toString();
-            }
-        }
-        setSharedPreference(this,"matrix", resArray);
-        SharedPreferences sp = this.getSharedPreferences("data", Context.MODE_PRIVATE);
-        SharedPreferences.Editor et = sp.edit();
-        et.putInt("Score",Score);
-        et.putInt("BestScore",BestScore);
-        et.commit();
         super.onDestroy();
     }
 
@@ -515,9 +551,41 @@ public class MainActivity extends AppCompatActivity implements  GestureDetector.
     }
 
     public void Restart(View view) {
-        linearLayout.setVisibility(View.VISIBLE);
+        AlertDialog.Builder dialog=new AlertDialog.Builder(MainActivity.this)
+                .setTitle("提示")
+                .setMessage("确认重开？")
+                .setCancelable(true);
+        dialog.setPositiveButton("是的", new DialogInterface.OnClickListener() {
+            /**
+             * This method will be invoked when a button in the dialog is clicked.
+             *
+             * @param dialog the dialog that received the click
+             * @param which  the button that was clicked (ex.
+             *               {@link DialogInterface#BUTTON_POSITIVE}) or the position
+             */
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Restart();
+            }
+        });
+        dialog.setNegativeButton("否", new DialogInterface.OnClickListener() {
+            /**
+             * This method will be invoked when a button in the dialog is clicked.
+             *
+             * @param dialog the dialog that received the click
+             * @param which  the button that was clicked (ex.
+             *               {@link DialogInterface#BUTTON_POSITIVE}) or the position
+             */
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+            }
+        });
+        dialog.show();
+
+     //   linearLayout.setVisibility(View.VISIBLE);
     }
-    public void RestartTureonClick(View view) {
+    public void Restart() {
         for(int x=0;x<4;x++){
             for (int y = 0; y < 4; y++){
                 textView[x][y].setText(String.valueOf(""));
@@ -528,31 +596,22 @@ public class MainActivity extends AppCompatActivity implements  GestureDetector.
         textViewScore.setText("SCORE\n"+Score);
         GenerateRandom();//生成随机2或4
         GenerateRandom();//生成随机2或4
-        linearLayoutforFailure.setVisibility(View.GONE);
-        linearLayout.setVisibility(View.GONE);
-    }
-    public void BackTureonClick(View view) {//确定退出
-        super.onBackPressed();
+        Curtain.setVisibility(View.GONE);
+        textViewGameOver.setVisibility(View.GONE);
+        isFailure=false;
     }
     @Override public void onBackPressed() {
-        if(linearLayoutforback.getVisibility()==View.GONE)
-        {
-            linearLayoutforback.setVisibility(View.VISIBLE);
-        }else {
-            linearLayoutforback.setVisibility(View.GONE);
-        }
-        if(linearLayout.getVisibility()==View.VISIBLE)
-        {
-            linearLayout.setVisibility(View.GONE);
-        }
-        // super.onBackPressed();//注释掉这行,back键不退出activity
+           if(exit()){
+               super.onBackPressed();
+           }
        }
 
-    public void RestartCancelonClick(View view) {
-        linearLayout.setVisibility(View.GONE);
-    }
-
-    public void BackCancelonClick(View view) {
-        linearLayoutforback.setVisibility(View.GONE);
+    private boolean exit() {
+        if ((System.currentTimeMillis() - clickTime) > 2000) {
+            Toast.makeText(this, "再按一次后退键退出程序", Toast.LENGTH_SHORT).show();
+            clickTime = System.currentTimeMillis();
+            return false;
+        }
+        return true;
     }
 }

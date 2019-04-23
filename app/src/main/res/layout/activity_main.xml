@@ -8,10 +8,9 @@
     tools:context=".MainActivity">
 
 
-
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="581dp"
+        android:layout_height="match_parent"
         android:background="#f9f7ec"
         tools:context=".MainActivity"
         tools:layout_editor_absoluteY="137dp"
@@ -35,32 +34,21 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints,OnClick" />
 
-        <android.support.constraint.Guideline
-            android:id="@+id/guideline2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_end="430dp" />
-
         <TableLayout
             android:id="@+id/tableLayout"
-            android:layout_width="324dp"
-            android:layout_height="353dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="150dp"
             android:background="@drawable/shape_corner_for_table"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline2"
-            app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints">
             <!--android:background="@drawable/shape_corner"-->
             <TableRow
+                android:stretchColumns="4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -69,15 +57,16 @@
 
                 <TextView
                     android:id="@+id/t00"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text="00"
                     android:textAllCaps="true"
+                    android:textSize="30sp"
                     android:textStyle="bold|italic"
                     android:topLeftRadius="5dp"
                     android:topRightRadius="5dp"
@@ -85,15 +74,16 @@
 
                 <TextView
                     android:id="@+id/t01"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text="01"
                     android:textAllCaps="true"
+                    android:textSize="30sp"
                     android:textStyle="bold|italic"
                     android:topLeftRadius="5dp"
                     android:topRightRadius="5dp"
@@ -101,15 +91,16 @@
 
                 <TextView
                     android:id="@+id/t02"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text="02"
                     android:textAllCaps="true"
+                    android:textSize="30sp"
                     android:textStyle="bold|italic"
                     android:topLeftRadius="5dp"
                     android:topRightRadius="5dp"
@@ -117,15 +108,16 @@
 
                 <TextView
                     android:id="@+id/t03"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text="03"
                     android:textAllCaps="true"
+                    android:textSize="30sp"
                     android:textStyle="bold|italic"
                     android:topLeftRadius="5dp"
                     android:topRightRadius="5dp"
@@ -133,6 +125,7 @@
             </TableRow>
 
             <TableRow
+                android:stretchColumns="4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -141,15 +134,16 @@
 
                 <TextView
                     android:id="@+id/t10"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text="10"
                     android:textAllCaps="true"
+                    android:textSize="30sp"
                     android:textStyle="bold|italic"
                     android:topLeftRadius="5dp"
                     android:topRightRadius="5dp"
@@ -157,15 +151,16 @@
 
                 <TextView
                     android:id="@+id/t11"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text="11"
                     android:textAllCaps="true"
+                    android:textSize="30sp"
                     android:textStyle="bold|italic"
                     android:topLeftRadius="5dp"
                     android:topRightRadius="5dp"
@@ -173,15 +168,16 @@
 
                 <TextView
                     android:id="@+id/t12"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text="12"
                     android:textAllCaps="true"
+                    android:textSize="30sp"
                     android:textStyle="bold|italic"
                     android:topLeftRadius="5dp"
                     android:topRightRadius="5dp"
@@ -189,15 +185,16 @@
 
                 <TextView
                     android:id="@+id/t13"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text="13"
                     android:textAllCaps="true"
+                    android:textSize="30sp"
                     android:textStyle="bold|italic"
                     android:topLeftRadius="5dp"
                     android:topRightRadius="5dp"
@@ -205,6 +202,7 @@
             </TableRow>
 
             <TableRow
+                android:stretchColumns="4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -212,15 +210,16 @@
 
                 <TextView
                     android:id="@+id/t20"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text="20"
                     android:textAllCaps="true"
+                    android:textSize="30sp"
                     android:textStyle="bold|italic"
                     android:topLeftRadius="5dp"
                     android:topRightRadius="5dp"
@@ -228,15 +227,16 @@
 
                 <TextView
                     android:id="@+id/t21"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text="21"
                     android:textAllCaps="true"
+                    android:textSize="30sp"
                     android:textStyle="bold|italic"
                     android:topLeftRadius="5dp"
                     android:topRightRadius="5dp"
@@ -244,15 +244,16 @@
 
                 <TextView
                     android:id="@+id/t22"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text="22"
                     android:textAllCaps="true"
+                    android:textSize="30sp"
                     android:textStyle="bold|italic"
                     android:topLeftRadius="5dp"
                     android:topRightRadius="5dp"
@@ -260,15 +261,16 @@
 
                 <TextView
                     android:id="@+id/t23"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text="23"
                     android:textAllCaps="true"
+                    android:textSize="30sp"
                     android:textStyle="bold|italic"
                     android:topLeftRadius="5dp"
                     android:topRightRadius="5dp"
@@ -276,6 +278,7 @@
             </TableRow>
 
             <TableRow
+                android:stretchColumns="4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -284,15 +287,16 @@
 
                 <TextView
                     android:id="@+id/t30"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text="30"
                     android:textAllCaps="true"
+                    android:textSize="30sp"
                     android:textStyle="bold|italic"
                     android:topLeftRadius="5dp"
                     android:topRightRadius="5dp"
@@ -300,15 +304,16 @@
 
                 <TextView
                     android:id="@+id/t31"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text="31"
                     android:textAllCaps="true"
+                    android:textSize="30sp"
                     android:textStyle="bold|italic"
                     android:topLeftRadius="5dp"
                     android:topRightRadius="5dp"
@@ -316,15 +321,16 @@
 
                 <TextView
                     android:id="@+id/t32"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text="32"
                     android:textAllCaps="true"
+                    android:textSize="30sp"
                     android:textStyle="bold|italic"
                     android:topLeftRadius="5dp"
                     android:topRightRadius="5dp"
@@ -332,15 +338,16 @@
 
                 <TextView
                     android:id="@+id/t33"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
                     android:gravity="center"
-                    android:text="TextView"
+                    android:text="33"
                     android:textAllCaps="true"
+                    android:textSize="30sp"
                     android:textStyle="bold|italic"
                     android:topLeftRadius="5dp"
                     android:topRightRadius="5dp"
@@ -350,166 +357,34 @@
 
         </TableLayout>
 
-    </android.support.constraint.ConstraintLayout>
-
-    <LinearLayout
-        android:id="@+id/RestartLiner"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/buttongaryforback"
-            android:layout_width="match_parent"
-            android:layout_height="191dp"
-            android:background="#64a6a29d"
-            android:onClick="RestartCancelonClick" />
-
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/RestarLayoutforback"
+        <ImageView
+            android:id="@+id/curtain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#64a6a29d">
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="150dp"
+            android:background="@drawable/cover_tablelayout" />
 
-            <Button
-                android:id="@+id/restartTureforFailure"
-                android:layout_width="79dp"
-                android:layout_height="36dp"
-                android:layout_marginBottom="160dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:background="@android:color/transparent"
-                android:onClick="RestartTureonClick"
-                android:text="重开 "
-                android:textColor="#4e4d4d"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/BackCancelforback"
-                app:layout_constraintHorizontal_bias="0.408"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/BackCancelforback"
-                android:layout_width="85dp"
-                android:layout_height="42dp"
-                android:layout_marginBottom="156dp"
-                android:layout_marginEnd="84dp"
-                android:layout_marginRight="84dp"
-                android:background="@android:color/transparent"
-                android:onClick="RestartCancelonClick"
-                android:text="取消"
-                android:textColor="#4e4d4d"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:ignore="MissingConstraints" />
-
-        </android.support.constraint.ConstraintLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/BackLiner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/buttongray"
+        <TextView
+            android:id="@+id/textGAMEOVER"
             android:layout_width="match_parent"
-            android:layout_height="191dp"
-            android:background="#64a6a29d"
-            android:onClick="BackCancelonClick" />
-
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/RestarLayout"
-            android:layout_width="match_parent"
-            android:layout_height="376dp"
-            android:background="#64a6a29d">
-
-            <Button
-                android:id="@+id/BackTure"
-                android:layout_width="79dp"
-                android:layout_height="36dp"
-                android:layout_marginBottom="160dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:background="@android:color/transparent"
-                android:onClick="BackTureonClick"
-                android:text="退出"
-                android:textColor="#4e4d4d"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/BackCancel"
-                app:layout_constraintHorizontal_bias="0.408"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/BackCancel"
-                android:layout_width="85dp"
-                android:layout_height="42dp"
-                android:layout_marginBottom="156dp"
-                android:layout_marginEnd="84dp"
-                android:layout_marginRight="84dp"
-                android:background="@android:color/transparent"
-                android:onClick="BackCancelonClick"
-                android:text="取消"
-                android:textColor="#4e4d4d"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:ignore="MissingConstraints" />
-
-        </android.support.constraint.ConstraintLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/FailureLiner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/buttongrayFailure"
-            android:layout_width="match_parent"
-            android:layout_height="191dp"
-            android:background="#64a6a29d"
-            android:onClick="BackCancelonClick" />
-
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/failureLayout"
-            android:layout_width="match_parent"
-            android:layout_height="376dp"
-            android:background="#64a6a29d">
-
-            <Button
-                android:id="@+id/restartTure"
-                android:layout_width="79dp"
-                android:layout_height="36dp"
-                android:layout_marginBottom="288dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="152dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="152dp"
-                android:background="@android:color/transparent"
-                android:onClick="RestartTureonClick"
-                android:text="重来"
-                android:textColor="#4e4d4d"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.006"
-                app:layout_constraintStart_toStartOf="parent" />
-
-        </android.support.constraint.ConstraintLayout>
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="150dp"
+            android:gravity="center"
+            android:text="GAME OVER"
+            android:textColor="#dfdfdf"
+            android:textSize="60dp"
+            android:textStyle="bold" />
+    </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
