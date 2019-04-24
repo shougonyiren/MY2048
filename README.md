@@ -1,3 +1,3 @@
 # MY2048
 基本做完的安卓2048
-效果图：https://github.com/shougonyiren/MY2048/blob/master/app/src/main/res/layout/design_sketch.jpg
+![效果图：]https://github.com/shougonyiren/MY2048/blob/master/app/src/main/res/layout/design_sketch.jpg
