@@ -15,7 +15,6 @@
         tools:context=".MainActivity"
         tools:layout_editor_absoluteY="137dp"
         tools:showIn="@layout/activity_main">
-
         <Button
             android:id="@+id/restartbutton"
             android:layout_width="104dp"
