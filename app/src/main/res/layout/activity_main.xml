@@ -15,6 +15,7 @@
         tools:context=".MainActivity"
         tools:layout_editor_absoluteY="137dp"
         tools:showIn="@layout/activity_main">
+
         <Button
             android:id="@+id/restartbutton"
             android:layout_width="104dp"
@@ -22,6 +23,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:background="@android:color/transparent"
+            android:elevation="5dp"
             android:gravity="bottom|center"
             android:onClick="Restart"
             android:text="restart"
@@ -47,12 +49,12 @@
             tools:ignore="MissingConstraints">
             <!--android:background="@drawable/shape_corner"-->
             <TableRow
-                android:stretchColumns="4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/tablerow"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:stretchColumns="4">
 
                 <TextView
                     android:id="@+id/t00"
@@ -62,6 +64,7 @@
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
+                    android:elevation="4dp"
                     android:gravity="center"
                     android:text="00"
                     android:textAllCaps="true"
@@ -79,6 +82,7 @@
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
+                    android:elevation="4dp"
                     android:gravity="center"
                     android:text="01"
                     android:textAllCaps="true"
@@ -96,6 +100,7 @@
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
+                    android:elevation="4dp"
                     android:gravity="center"
                     android:text="02"
                     android:textAllCaps="true"
@@ -113,6 +118,7 @@
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
+                    android:elevation="4dp"
                     android:gravity="center"
                     android:text="03"
                     android:textAllCaps="true"
@@ -124,12 +130,12 @@
             </TableRow>
 
             <TableRow
-                android:stretchColumns="4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/tablerow"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:stretchColumns="4">
 
                 <TextView
                     android:id="@+id/t10"
@@ -139,6 +145,7 @@
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
+                    android:elevation="4dp"
                     android:gravity="center"
                     android:text="10"
                     android:textAllCaps="true"
@@ -156,6 +163,7 @@
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
+                    android:elevation="4dp"
                     android:gravity="center"
                     android:text="11"
                     android:textAllCaps="true"
@@ -173,6 +181,7 @@
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
+                    android:elevation="4dp"
                     android:gravity="center"
                     android:text="12"
                     android:textAllCaps="true"
@@ -190,6 +199,7 @@
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
+                    android:elevation="4dp"
                     android:gravity="center"
                     android:text="13"
                     android:textAllCaps="true"
@@ -201,11 +211,11 @@
             </TableRow>
 
             <TableRow
-                android:stretchColumns="4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/tablerow">
+                android:background="@drawable/tablerow"
+                android:stretchColumns="4">
 
                 <TextView
                     android:id="@+id/t20"
@@ -215,6 +225,7 @@
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
+                    android:elevation="4dp"
                     android:gravity="center"
                     android:text="20"
                     android:textAllCaps="true"
@@ -232,6 +243,7 @@
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
+                    android:elevation="4dp"
                     android:gravity="center"
                     android:text="21"
                     android:textAllCaps="true"
@@ -249,6 +261,7 @@
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
+                    android:elevation="4dp"
                     android:gravity="center"
                     android:text="22"
                     android:textAllCaps="true"
@@ -266,6 +279,7 @@
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
+                    android:elevation="4dp"
                     android:gravity="center"
                     android:text="23"
                     android:textAllCaps="true"
@@ -277,12 +291,12 @@
             </TableRow>
 
             <TableRow
-                android:stretchColumns="4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/tablerow"
-                android:gravity="center">
+                android:gravity="center"
+                android:stretchColumns="4">
 
                 <TextView
                     android:id="@+id/t30"
@@ -292,6 +306,7 @@
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
+                    android:elevation="4dp"
                     android:gravity="center"
                     android:text="30"
                     android:textAllCaps="true"
@@ -309,6 +324,7 @@
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
+                    android:elevation="4dp"
                     android:gravity="center"
                     android:text="31"
                     android:textAllCaps="true"
@@ -326,6 +342,7 @@
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
+                    android:elevation="4dp"
                     android:gravity="center"
                     android:text="32"
                     android:textAllCaps="true"
@@ -343,6 +360,7 @@
                     android:background="@drawable/shape_corner"
                     android:bottomLeftRadius="5dp"
                     android:bottomRightRadius="5dp"
+                    android:elevation="4dp"
                     android:gravity="center"
                     android:text="33"
                     android:textAllCaps="true"
@@ -397,6 +415,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/shape_corner"
+            android:elevation="5dp"
             android:gravity="center"
             android:text="Best"
             android:textAllCaps="true"
@@ -416,6 +435,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/shape_corner"
+            android:elevation="8dp"
             android:gravity="center"
             android:text="SCORE"
             android:textAllCaps="true"
@@ -433,6 +453,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
+            android:elevation="5dp"
             android:text="2048"
             android:textAllCaps="true"
             android:textSize="36sp"
@@ -440,6 +461,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="HardcodedText,MissingConstraints" />
+
     </android.support.constraint.ConstraintLayout>
 
 </android.support.design.widget.CoordinatorLayout>
